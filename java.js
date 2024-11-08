@@ -3,6 +3,7 @@ let rows = document.getElementsByClassName("gridRow");
 let cells = document.getElementsByClassName("cell");
 const button = document.getElementById("clear-button");
 
+
 defaultgrid();
 
 function defaultgrid() {
@@ -30,7 +31,8 @@ function makeColumns(cellNum) {
 function colourDiv() {
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener('mouseover', () => {
-            cells[i].setAttribute("style", "background-color: orange")
+            let anyColour = getRandomColour();
+            cells[i].style.backgroundColor = anyColour;
         })
     }
 }
@@ -63,3 +65,10 @@ button.addEventListener('click', () => {
         newGrid(userInput);
     }
 })
+
+function getRandomColour() {
+    let randomColour = Math.floor(Math.random()*16777215).toString(16);
+    return "#" + randomColour;
+}
+
+console.log(getRandomColour());
