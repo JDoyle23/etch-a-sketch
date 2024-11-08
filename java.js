@@ -1,4 +1,4 @@
-const container =document.getElementById("container");
+const container = document.getElementById("container");
 let rows = document.getElementsByClassName("gridRow");
 let cells = document.getElementsByClassName("cell");
 const button = document.getElementById("clear-button");
@@ -44,7 +44,14 @@ function newGrid(userInput) {
     colourDiv();
 }
 
+function clearGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
 button.addEventListener('click', () => {
+    clearGrid();
     let userInput = prompt ('Enter the size of your new frid! (Below 100 squares)');
     if (isNaN(userInput)) {
         let userInput = prompt('Please enter a valid number:');
